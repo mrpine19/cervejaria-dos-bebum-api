@@ -1,5 +1,6 @@
 package br.com.bebuns.dos.cervejaria.controllers;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

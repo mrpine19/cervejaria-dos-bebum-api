@@ -65,5 +65,15 @@ public class BreweryController {
         return breweryService.update(id, brewery);
     }
 
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @Operation(
+            tags = "Brewery",
+            summary = "Remove uma cervejaria",
+            description = "Exclui permanentemente o registro de uma cervejaria específica do sistema com base no ID fornecido."
+    )
+    public void deleteBrewery(@PathVariable Long id){
+        breweryService.delete(id);
+    }
 
 }

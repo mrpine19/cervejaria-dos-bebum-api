@@ -40,4 +40,10 @@ public class BreweryService {
         return breweryRepository.save(existingBrewery);
     }
 
+    public void delete(Long id) {
+        Brewery existingBrewery = breweryRepository.findById(id).orElseThrow(
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Beer not found :(")
+        );
+        breweryRepository.delete(existingBrewery);
+    }
 }

@@ -3,6 +3,7 @@ package br.com.bebuns.dos.cervejaria.controllers;
 import br.com.bebuns.dos.cervejaria.models.Brewery;
 import br.com.bebuns.dos.cervejaria.repositorys.BreweryRepository;
 import br.com.bebuns.dos.cervejaria.services.BreweryService;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,17 +21,34 @@ public class BreweryController {
     private final BreweryService breweryService;
 
     @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(
+            tags = "Brewery",
+            summary = "Lista todas as cervejarias",
+            description = "Retorna uma lista com todas as cervejarias cadastradas no sistema."
+    )
     public Page<Brewery> listAllBreweries(Pageable pageable){
         return breweryService.listAllBreweries(pageable);
     }
 
     @GetMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(
+            tags = "Brewery",
+            summary = "Busca uma cervejaria pelo ID",
+            description = "Retorna os uma cervejaria especifica."
+    )
     public Optional<Brewery> findByIdBrewery(@PathVariable Long id){
         return breweryService.findByIdBrewery(id);
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @Operation(
+            tags = "Brewery",
+            summary = "Cadastra uma nova cervejaria",
+            description = "Cria um novo registro de cervejaria no sistema com os dados fornecidos no corpo da requisição."
+    )
     public Brewery createBrewery(@RequestBody Brewery brewery){
         return breweryService.createBrewery(brewery);
     }

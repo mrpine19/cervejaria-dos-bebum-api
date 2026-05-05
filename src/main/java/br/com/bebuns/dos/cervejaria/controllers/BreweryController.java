@@ -1,5 +1,6 @@
 package br.com.bebuns.dos.cervejaria.controllers;
 
+import br.com.bebuns.dos.cervejaria.models.Beer;
 import br.com.bebuns.dos.cervejaria.models.Brewery;
 import br.com.bebuns.dos.cervejaria.repositorys.BreweryRepository;
 import br.com.bebuns.dos.cervejaria.services.BreweryService;
@@ -53,6 +54,16 @@ public class BreweryController {
         return breweryService.createBrewery(brewery);
     }
 
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(
+            tags = "Brewery",
+            summary = "Atualiza uma cervejaria existente",
+            description = "Atualiza os dados de uma cervejaria específica com base no ID fornecido. Os novos dados devem ser passados no corpo da requisição."
+    )
+    public Brewery updateBrewery(@PathVariable Long id, @RequestBody Brewery brewery){
+        return breweryService.update(id, brewery);
+    }
 
 
 }

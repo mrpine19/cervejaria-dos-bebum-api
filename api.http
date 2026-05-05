@@ -1,0 +1,130 @@
+###
+# Cervejarias
+###
+
+# Cadastra a Cervejaria Ambev
+POST http://localhost:8080/breweries
+Content-Type: application/json
+
+{
+  "name": "Ambev"
+}
+
+###
+
+# Cadastra a Cervejaria Heineken
+POST http://localhost:8080/breweries
+Content-Type: application/json
+
+{
+  "name": "Heineken"
+}
+
+###
+
+# Cadastra a Cervejaria Petrópolis
+POST http://localhost:8080/breweries
+Content-Type: application/json
+
+{
+  "name": "Petrópolis"
+}
+
+
+###
+# Cervejas
+###
+
+# Cadastra a cerveja Brahma
+POST http://localhost:8080/beers
+Content-Type: application/json
+
+{
+  "name": "Brahma Duplo Malte",
+  "description": "Uma cerveja com a combinação de malte pilsner e malte munich.",
+  "alcoholContent": 4.7,
+  "harmonization": "Churrasco, petiscos e feijoada.",
+  "breweries": [
+    { "id": 1 }
+  ]
+}
+
+###
+
+# Cadastra a cerveja Skol
+POST http://localhost:8080/beers
+Content-Type: application/json
+
+{
+  "name": "Skol",
+  "description": "A cerveja que desce redondo.",
+  "alcoholContent": 4.7,
+  "harmonization": "Petiscos, saladas e pratos leves.",
+  "breweries": [
+    { "id": 1 }
+  ]
+}
+
+###
+
+# Cadastra a cerveja Heineken
+POST http://localhost:8080/beers
+Content-Type: application/json
+
+{
+  "name": "Heineken",
+  "description": "A cerveja premium de alta qualidade.",
+  "alcoholContent": 5.0,
+  "harmonization": "Pratos condimentados, queijos e frutos do mar.",
+  "breweries": [
+    { "id": 2 }
+  ]
+}
+
+###
+
+# Cadastra a cerveja Amstel
+POST http://localhost:8080/beers
+Content-Type: application/json
+
+{
+  "name": "Amstel",
+  "description": "Uma cerveja lager puro malte.",
+  "alcoholContent": 4.6,
+  "harmonization": "Comida de boteco, como pastéis e coxinhas.",
+  "breweries": [
+    { "id": 2 }
+  ]
+}
+
+###
+
+# Cadastra a cerveja Itaipava
+POST http://localhost:8080/beers
+Content-Type: application/json
+
+{
+  "name": "Itaipava",
+  "description": "A cerveja 100% verão.",
+  "alcoholContent": 4.5,
+  "harmonization": "Frutos do mar, saladas e petiscos.",
+  "breweries": [
+    { "id": 3 }
+  ]
+}
+
+###
+
+# Cadastra a cerveja Petra
+POST http://localhost:8080/beers
+Content-Type: application/json
+
+{
+  "name": "Petra Origem",
+  "description": "Cerveja puro malte com receita original da serra de Petrópolis.",
+  "alcoholContent": 4.8,
+  "harmonization": "Carnes vermelhas, massas e queijos.",
+  "breweries": [
+    { "id": 3 }
+  ]
+}

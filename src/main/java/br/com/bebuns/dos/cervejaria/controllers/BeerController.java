@@ -23,8 +23,32 @@ public class BeerController {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Beer getBeerById(@RequestParam Long id){
+    public Beer getBeerById(@PathVariable Long id){
         return beerService.findById(id);
+    }
+
+    @GetMapping("/brewery/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public List<Beer> getBeersByBreweryId(@PathVariable Long id){
+        return beerService.findByBreweryId(id);
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Beer createBeer(@RequestBody Beer beer){
+        return beerService.save(beer);
+    }
+
+    @PutMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public Beer updateBeer(@PathVariable Long id, @RequestBody Beer beer){
+        return beerService.update(id, beer);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteBeer(@PathVariable Long id){
+        beerService.delete(id);
     }
 
 }

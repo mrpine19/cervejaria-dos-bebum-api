@@ -26,4 +26,27 @@ public class BeerService {
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Beer not found :(")
         );
     }
+
+    public List<Beer> findByBreweryId(Long id) {
+        return beerRepository.findAllByBreweriesId(id);
+    }
+
+    public Beer save(Beer beer) {
+        return beerRepository.save(beer);
+    }
+
+    public Beer update(Long id, Beer updatedBeer) {
+        Beer existingBeer = findById(id);
+        existingBeer.setName(updatedBeer.getName());
+        existingBeer.setDescription(updatedBeer.getDescription());
+        existingBeer.setAlcoholContent(updatedBeer.getAlcoholContent());
+        existingBeer.setHarmonization(updatedBeer.getHarmonization());
+        existingBeer.setBreweries(updatedBeer.getBreweries());
+        return beerRepository.save(existingBeer);
+    }
+
+    public void delete(Long id) {
+        Beer existingBeer = findById(id);
+        beerRepository.delete(existingBeer);
+    }
 }

@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
         info = @Info(
                 title = "Beer Guide API",
                 version = "1.0",
-                description = "API para Guia de Cervejas Artesanais, para os apreciadores."
+                description = "API para Guia de Cervejas Artesanais, desenvolvida para os apreciadores e bebuns."
         )
 )
 public class SwaggerConfig {
